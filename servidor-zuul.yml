@@ -1,0 +1,21 @@
+#PUERTO
+server:
+  port: 7000
+#CONFIGURACION ZUUL
+zuul:
+  routes:
+    serv-vuelos:
+      path: /svuelos/**
+      serviceId: servicio-vuelos
+    serv-hoteles:
+      path: /shoteles/**
+      serviceId: servicio-hoteles
+    serv-reservas:
+      path: /sreservas/**
+      serviceId: servicio-reservas
+#Como otra alternativa de serviceId es usar 'url' indicando la url que se va a solicitar 
+#EUREKA      
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
